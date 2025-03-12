@@ -14,7 +14,7 @@ public class AffectationÉquipement {
    
     private Salle salle;
     private Équipement equipement;
-    private Date date_affectation;
+    private Date dateAffectation;
 
     // Constructeur
     public AffectationÉquipement( Salle salle, Équipement equipement, Date date_affectation) {
