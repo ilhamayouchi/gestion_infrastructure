@@ -65,7 +65,7 @@ public class Test {
             System.out.println("Impossible de supprimer la salle.");
         }
 
-        System.out.print
+        
     }
 
     // Test pour EquipementService
