@@ -28,7 +28,7 @@ public class Test {
         System.out.println("Test de création de salles...");
         salleService.create(new Salle("Salle A", "Amphi", 100));
         salleService.create(new Salle("Salle B", "Salle de réunion", 50));
-        System.out.println("Salles créées avec succès !");
+        System.out.println("Salles créées avec succès");
 
         
         System.out.println("Liste des salles :");
@@ -73,8 +73,8 @@ public class Test {
         EquipementServices equipementService = new EquipementServices();
 
         System.out.println("Création d'équipements ");
-        equipementService.create(new Équipement("Projecteur", "Audio-Visuel", "Fonctionnel"));
-        equipementService.create(new Équipement("Ordinateur", "Informatique", "En panne"));
+        equipementService.create(new Équipement("projecteur", "Audio Visuel", "Fonctionnel"));
+        equipementService.create(new Équipement("ordinateur", "Informatique", "En panne"));
         System.out.println("Équipements créés avec succès");
 
         
@@ -88,7 +88,7 @@ public class Test {
         System.out.println("Rechrche d'id ");
         Équipement equipementTrouve = equipementService.findById(1);
         if (equipementTrouve != null) {
-            System.out.println("Équipement trouvé : " + equipementTrouve.getNom());
+            System.out.println("équipement trouvé : " + equipementTrouve.getNom());
         } else {
             System.out.println("Équipement non trouvé.");
         }
@@ -97,13 +97,13 @@ public class Test {
         if (equipementTrouve != null) {
             equipementTrouve.setEtat("  ");
             equipementService.update(equipementTrouve);
-            System.out.println(" Équipement mis à jour avec succès !");
+            System.out.println(" Équipement mis à jour avec succès");
         } else {
             System.out.println(" Impossible de mettre à jour l'équipement.");
         }
 
         
-        System.out.println(" Suppression ");
+        System.out.println(" suppression ");
         if (equipementTrouve != null) {
             equipementService.delete(equipementTrouve);
             System.out.println("Équipement supprimé avec succès");
