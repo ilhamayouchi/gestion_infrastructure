@@ -26,7 +26,7 @@ public class Test {
 
         
         System.out.println("Test de création de salles...");
-        salleService.create(new Salle("Salle A", "Amphithéâtre", 100));
+        salleService.create(new Salle("Salle A", "Amphi", 100));
         salleService.create(new Salle("Salle B", "Salle de réunion", 50));
         System.out.println("Salles créées avec succès !");
 
@@ -38,7 +38,7 @@ public class Test {
         }
 
         
-        System.out.println("Test de recherche d'une salle par ID...");
+        System.out.println("Test de recherche d'une salle par id");
         Salle salleTrouvee = salleService.findById(1);
         if (salleTrouvee != null) {
             System.out.println("Salle trouvée : " + salleTrouvee.getNom());
@@ -47,35 +47,35 @@ public class Test {
         }
 
         
-        System.out.println("Test de mise à jour d'une salle...");
+        System.out.println("Test de mise à jour d'une salle");
         if (salleTrouvee != null) {
             salleTrouvee.setCapacite(120);
             salleService.update(salleTrouvee);
-            System.out.println("Salle mise à jour avec succès !");
+            System.out.println("Salle mise à jour avec succès");
         } else {
             System.out.println("Impossible de mettre à jour la salle.");
         }
 
         
-        System.out.println("Test de suppression d'une salle...");
+        System.out.println("Test de suppression d'une salle");
         if (salleTrouvee != null) {
             salleService.delete(salleTrouvee);
-            System.out.println("Salle supprimée avec succès !");
+            System.out.println("Salle supprimée avec succès");
         } else {
             System.out.println("Impossible de supprimer la salle.");
         }
 
-        System.out.println("=== Fin du test de SalleService ===\n");
+        System.out.print
     }
 
-    
+    // Test pour EquipementService
     public static void testÉquipementService() {
         EquipementServices equipementService = new EquipementServices();
 
         System.out.println("Création d'équipements ");
         equipementService.create(new Équipement("Projecteur", "Audio-Visuel", "Fonctionnel"));
         equipementService.create(new Équipement("Ordinateur", "Informatique", "En panne"));
-        System.out.println("Équipements créés avec succès !");
+        System.out.println("Équipements créés avec succès");
 
         
         System.out.println(" Afficher équipements ");
@@ -85,7 +85,7 @@ public class Test {
         }
 
         
-        System.out.println("Rechrche d'ID ");
+        System.out.println("Rechrche d'id ");
         Équipement equipementTrouve = equipementService.findById(1);
         if (equipementTrouve != null) {
             System.out.println("Équipement trouvé : " + equipementTrouve.getNom());
@@ -95,7 +95,7 @@ public class Test {
 
         System.out.println(" Mise a jour ");
         if (equipementTrouve != null) {
-            equipementTrouve.setEtat(" En maintenance ");
+            equipementTrouve.setEtat("  ");
             equipementService.update(equipementTrouve);
             System.out.println(" Équipement mis à jour avec succès !");
         } else {
@@ -106,9 +106,9 @@ public class Test {
         System.out.println(" Suppression ");
         if (equipementTrouve != null) {
             equipementService.delete(equipementTrouve);
-            System.out.println("Équipement supprimé avec succès !");
+            System.out.println("Équipement supprimé avec succès");
         } else {
-            System.out.println("Impossible de supprimer l'équipement.");
+            System.out.println("Impossible de supprimer équipement");
         }
 
         
