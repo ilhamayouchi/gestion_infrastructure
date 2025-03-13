@@ -19,10 +19,10 @@ public class AffectationÉquipement {
     private Date dateAffectation;
 
     // Constructeur
-    public AffectationÉquipement(Salle salle, Équipement equipement, Date date_affectation) {
+    public AffectationÉquipement(Salle salle, Équipement equipement, Date dateaffectation) {
         this.salle = salle;
         this.equipement = equipement;
-        this.date_affectation = date_affectation;
+        this.dateAffectation = dateaffectation;
     }
 
     // Getters et Setters
@@ -43,10 +43,10 @@ public class AffectationÉquipement {
     }
 
     public Date getDate_affectation() {
-        return date_affectation;
+        return dateAffectation;
     }
 
     public void setDate_affectation(Date date_affectation) {
-        this.date_affectation = date_affectation;
+        this.dateAffectation = dateAffectation;
     }
 }
