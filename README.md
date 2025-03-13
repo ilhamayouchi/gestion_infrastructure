@@ -49,7 +49,7 @@ La base de données MySQL est composée des tables suivantes :
 ### Les tables SQL
 ```sql
 CREATE TABLE `salle` (
-    `id` INT(11) NOT NULL ,
+    `id` INT(11) NOT NULL AUTO_INCREMENT ,
     `nom` VARCHAR(100) NOT NULL,
     `type` VARCHAR(50) DEFAULT NULL,
     `capacite` INT(11) DEFAULT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE `salle` (
 
 
 CREATE TABLE `équipement` (
-    `id` INT(11) NOT NULL ,
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
     `nom` VARCHAR(100) NOT NULL,
     `type` VARCHAR(50) DEFAULT NULL,
     `etat` VARCHAR(50) DEFAULT NULL,
