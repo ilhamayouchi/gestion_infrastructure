@@ -1,4 +1,6 @@
 "# gestion_infrastructure" 
+
+
 CREATE TABLE Salle ( id INT PRIMARY KEY AUTO_INCREMENT, 
 nom VARCHAR(100) NOT NULL,
 type VARCHAR(50),
