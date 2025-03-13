@@ -66,12 +66,11 @@ CREATE TABLE `équipement` (
 );
 
 
-CREATE TABLE `affectation_equipement` (
-    
-    `salle` INT(11) NOT NULL,
-    `equipement` INT(11) NOT NULL,
-    `dateaffectation` DATE NOT NULL,
-    FOREIGN KEY (`salle`) REFERENCES `salle`(`id`),
-    FOREIGN KEY (`equipement`) REFERENCES `équipement`(`id`) 
-);
+CREATE TABLE affectation_equipement (
+salleid INT,
+equipementid INT,
+dateaffectation DATE NOT NULL,
+CONSTRAINT fk_salle FOREIGN KEY (salleid) REFERENCES salle(id),
+CONSTRAINT fk_equipement FOREIGN KEY (equipementid) REFERENCES équipement(id)
+ );
 
