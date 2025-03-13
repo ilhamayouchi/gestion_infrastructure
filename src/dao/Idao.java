@@ -11,10 +11,15 @@ import java.util.List;
  *
  * @author hp
  */
-public interface Idao <T> {
-     boolean create (T o);
-    boolean delete (T o);
-    boolean update (T o);
-    T findById (int  id);
-    List<T> findAll ();
+public interface Idao<T> {
+
+    boolean create(T o);
+
+    boolean delete(T o);
+
+    boolean update(T o);
+
+    T findById(int id);
+
+    List<T> findAll();
 }

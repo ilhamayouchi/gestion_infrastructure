@@ -7,9 +7,12 @@ package testprogramme;
 
 import beans.Salle;
 import beans.Équipement;
+import beans.AffectationÉquipement;
+import java.util.Date;
 import java.util.List;
 import services.EquipementServices;
 import services.SalleServices;
+import services.AffectationService;
 
 /**
  *
@@ -20,6 +23,7 @@ public class Testpro {
     public static void main(String[] args) {
         testSalleService();
         testÉquipementService();
+        testAffectationÉquipementService();
     }
 
     // Test pour SalleService
@@ -105,4 +109,65 @@ public class Testpro {
         }
 
     }
+
+    //Test AffectationEquipement
+    public static void testAffectationÉquipementService() {
+        SalleServices salleService = new SalleServices();
+        EquipementServices equipementService = new EquipementServices();
+        AffectationService affectationService = new AffectationService();
+
+        System.out.println("Création de salles et équipements..");
+        Salle salle1 = new Salle("Salle A", "Amphi", 100);
+        Salle salle2 = new Salle("Salle B", "Salle de réunion", 50);
+        salleService.create(salle1);
+        salleService.create(salle2);
+
+        Équipement equipement1 = new Équipement("Projecteur", "Audio Visuel", "Fonctionnel");
+        Équipement equipement2 = new Équipement("Ordinateur", "Informatique", "En panne");
+        equipementService.create(equipement1);
+        equipementService.create(equipement2);
+
+        System.out.println("Affectation des équipements aux salles..");
+        AffectationÉquipement affectation1 = new AffectationÉquipement(salle1, equipement1, new Date());
+        AffectationÉquipement affectation2 = new AffectationÉquipement(salle2, equipement2, new Date());
+        affectationService.create(affectation1);
+        affectationService.create(affectation2);
+
+        System.out.println("Liste des affectations :");
+        List<AffectationÉquipement> affectations = affectationService.findAll();
+        for (AffectationÉquipement affectation : affectations) {
+            System.out.println("Salle: " + affectation.getSalle().getNom()
+                    + " - Équipement: " + affectation.getEquipement().getNom()
+                    + " - Date: " + affectation.getDate_affectation());
+        }
+
+        System.out.println("Recherche d'une affectation..");
+        AffectationÉquipement affectationTrouvee = affectationService.findById(1);
+        if (affectationTrouvee != null) {
+            System.out.println("Affectation trouvée : Salle - "
+                    + affectationTrouvee.getSalle().getNom()
+                    + " avec Équipement - "
+                    + affectationTrouvee.getEquipement().getNom());
+        } else {
+            System.out.println("Affectation non trouvée.");
+        }
+
+        System.out.println("Mise à jour d'une affectation..");
+        if (affectationTrouvee != null) {
+            affectationTrouvee.setDate_affectation(new Date());
+            affectationService.update(affectationTrouvee);
+            System.out.println("Affectation mise à jour avec succès.");
+        } else {
+            System.out.println("Impossible de mettre à jour l'affectation.");
+        }
+
+        System.out.println("Suppression d'une affectation..");
+        if (affectationTrouvee != null) {
+            affectationService.delete(affectationTrouvee);
+            System.out.println("Affectation supprimée avec succès.");
+        } else {
+            System.out.println("Impossible de supprimer l'affectation.");
+        }
+    }
+
 }

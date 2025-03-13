@@ -46,7 +46,7 @@ public class AffectationÉquipement {
         return dateAffectation;
     }
 
-    public void setDate_affectation(Date date_affectation) {
-        this.dateAffectation = dateAffectation;
+    public void setDate_affectation(Date dateaffectation) {
+        this.dateAffectation = dateaffectation;
     }
 }
