@@ -38,11 +38,11 @@ public class Testpro {
         System.out.println("Liste des salles :");
         List<Salle> salles = salleService.findAll();
         for (Salle salle : salles) {
-            System.out.println(salle.getNom() + " - " + salle.getType() + " - " + salle.getCapacite());
+            System.out.println(salle.getNom() + " - " + salle.getType() + " - " + salle.getCapacite() + "-" + salle.getId());
         }
 
         System.out.println("Test de recherche d'une salle par id");
-        Salle salleTrouvee = salleService.findById(6);
+        Salle salleTrouvee = salleService.findById(1);
         if (salleTrouvee != null) {
             System.out.println("Salle trouvée : " + salleTrouvee.getNom());
         } else {
@@ -84,7 +84,7 @@ public class Testpro {
         }
 
         System.out.println("Rechrche d'id ");
-        Équipement equipementTrouve = equipementService.findById(2);
+        Équipement equipementTrouve = equipementService.findById(1);
         if (equipementTrouve != null) {
             System.out.println("équipement trouvé : " + equipementTrouve.getNom());
         } else {
@@ -116,14 +116,14 @@ public class Testpro {
         EquipementServices equipementService = new EquipementServices();
         AffectationService affectationService = new AffectationService();
 
-        System.out.println("Création de salles et équipements..");
-        Salle salle1 = new Salle("Salle A", "Amphi", 100);
-        Salle salle2 = new Salle("Salle B", "Salle de réunion", 50);
+        
+        Salle salle1 = new Salle(4,"Salle A", "Amphi", 100);
+        Salle salle2 = new Salle(5,"Salle B", "Salle de réunion", 50);
         salleService.create(salle1);
         salleService.create(salle2);
 
-        Équipement equipement1 = new Équipement("Projecteur", "Audio Visuel", "Fonctionnel");
-        Équipement equipement2 = new Équipement("Ordinateur", "Informatique", "En panne");
+        Équipement equipement1 = new Équipement(4,"Projecteur", "Audio Visuel", "Fonctionnel");
+        Équipement equipement2 = new Équipement(5,"Ordinateur", "Informatique", "En panne");
         equipementService.create(equipement1);
         equipementService.create(equipement2);
 
