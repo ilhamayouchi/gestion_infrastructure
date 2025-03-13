@@ -4,34 +4,34 @@
  * and open the template in the editor.
  */
 package beans;
- import java.util.Date;
+
+import java.util.Date;
+
 /**
  *
  * @author hp
  */
 public class AffectationÉquipement {
     // Attributs
-   
+
     private Salle salle;
     private Équipement equipement;
     private Date date_affectation;
 
     // Constructeur
-    public AffectationÉquipement( Salle salle, Équipement equipement, Date date_affectation) {
-        this.salle= salle;
-        this.equipement= equipement;
+    public AffectationÉquipement(Salle salle, Équipement equipement, Date date_affectation) {
+        this.salle = salle;
+        this.equipement = equipement;
         this.date_affectation = date_affectation;
     }
 
     // Getters et Setters
-    
-
     public Salle getSalle() {
         return salle;
     }
 
     public void setSalle_(Salle salle) {
-        this.salle= salle;
+        this.salle = salle;
     }
 
     public Équipement getEquipement() {
@@ -50,4 +50,3 @@ public class AffectationÉquipement {
         this.date_affectation = date_affectation;
     }
 }
-    

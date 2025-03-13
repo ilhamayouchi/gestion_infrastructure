@@ -10,22 +10,25 @@ package beans;
  * @author hp
  */
 public class Équipement {
-     private int id;
+
+    private int id;
     private String nom;
     private String type;
     private String etat;
-    
-     public Équipement(int id, String nom, String type, String etat) {
+
+    public Équipement(int id, String nom, String type, String etat) {
         this.id = id;
         this.nom = nom;
         this.type = type;
         this.etat = etat;
     }
-      public Équipement( String nom, String type, String etat) {
+
+    public Équipement(String nom, String type, String etat) {
         this.nom = nom;
         this.type = type;
         this.etat = etat;
     }
+
     public int getId() {
         return id;
     }
@@ -58,6 +61,3 @@ public class Équipement {
         this.etat = etat;
     }
 }
-
-
-    

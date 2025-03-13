@@ -5,10 +5,9 @@
  */
 package services;
 
-
 import beans.Salle;
 import connexion.Connexion;
-import doa.Idoa;
+import dao.Idao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +18,7 @@ import java.util.List;
  *
  * @author hp
  */
-public class SalleServices implements Idoa<Salle> {
+public class SalleServices implements Idao<Salle> {
 
     private Connexion connexion;
 
@@ -27,23 +26,23 @@ public class SalleServices implements Idoa<Salle> {
         connexion = Connexion.getInstance();
     }
 
-   @Override
-public boolean create(Salle o) {
-    String req = "insert into Salle (nom, type, capacite) values (?, ?, ?)" ;
-    try {
-        PreparedStatement ps = connexion.getCn().prepareStatement(req);
-        ps.setString(1, o.getNom());
-        ps.setString(2, o.getType());
-        ps.setInt(3, o.getCapacite());
-        ps.executeUpdate();
-        return true;
-    } catch (SQLException ex) {
-        System.out.println("Erreur lors de la création de la salle : " + ex.getMessage()) ;
+    @Override
+    public boolean create(Salle o) {
+        String req = "insert into Salle (nom, type, capacite) values (?, ?, ?)";
+        try {
+            PreparedStatement ps = connexion.getCn().prepareStatement(req);
+            ps.setString(1, o.getNom());
+            ps.setString(2, o.getType());
+            ps.setInt(3, o.getCapacite());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Erreur lors de la création de la salle : " + ex.getMessage());
+        }
+        return false;
     }
-    return false;
-}
 
-   @Override
+    @Override
     public boolean delete(Salle o) {
         String req = "delete from Salle where id = ?";
         try {
@@ -57,7 +56,7 @@ public boolean create(Salle o) {
         return false;
     }
 
-   @Override
+    @Override
     public boolean update(Salle o) {
         String req = "update Salle set nom = ?, type = ?, capacite = ? where id = ?";
         try {
@@ -74,7 +73,7 @@ public boolean create(Salle o) {
         return false;
     }
 
-   @Override
+    @Override
     public Salle findById(int id) {
         String req = "select * from Salle where id = ?";
         try {
@@ -89,6 +88,7 @@ public boolean create(Salle o) {
         }
         return null;
     }
+
     @Override
     public List<Salle> findAll() {
         List<Salle> salles = new ArrayList<>();

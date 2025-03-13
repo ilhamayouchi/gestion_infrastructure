@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package doa;
+package dao;
 
 import java.util.List;
 
@@ -11,15 +11,10 @@ import java.util.List;
  *
  * @author hp
  */
-public interface Idoa <T> {
-    boolean create (T o);
+public interface Idao <T> {
+     boolean create (T o);
     boolean delete (T o);
     boolean update (T o);
     T findById (int  id);
     List<T> findAll ();
-    
-    
-    
 }
-
-

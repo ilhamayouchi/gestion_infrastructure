@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package services;
+
 import beans.Équipement;
 import connexion.Connexion;
-import doa.Idoa;
+import dao.Idao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,8 +18,7 @@ import java.util.List;
  *
  * @author hp
  */
-
-public class EquipementServices implements Idoa<Équipement> {
+public class EquipementServices implements Idao<Équipement> {
 
     private Connexion connexion;
 
@@ -27,20 +27,20 @@ public class EquipementServices implements Idoa<Équipement> {
     }
 
     @Override
-public boolean create(Équipement o) {
-    String req = "insert into Équipement (nom, type, etat) values (?, ?, ?)";
-    try {
-        PreparedStatement ps = connexion.getCn().prepareStatement(req);
-        ps.setString(1, o.getNom());
-        ps.setString(2, o.getType());
-        ps.setString(3, o.getEtat());
-        ps.executeUpdate();
-        return true;
-    } catch (SQLException ex) {
-        System.out.println("Erreur lors de la création de l'équipement : " + ex.getMessage());
+    public boolean create(Équipement o) {
+        String req = "insert into Équipement (nom, type, etat) values (?, ?, ?)";
+        try {
+            PreparedStatement ps = connexion.getCn().prepareStatement(req);
+            ps.setString(1, o.getNom());
+            ps.setString(2, o.getType());
+            ps.setString(3, o.getEtat());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Erreur lors de la création de l'équipement : " + ex.getMessage());
+        }
+        return false;
     }
-    return false;
-}
 
     @Override
     public boolean delete(Équipement o) {
