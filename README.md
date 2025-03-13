@@ -1,20 +1,20 @@
-# 🏫 Gestion des Infrastructures Scolaires
+# Gestion des Infrastructures Scolaires
 
 Ce projet est une application permettant de gérer les infrastructures scolaires, y compris les salles, les équipements et leur affectation.  
 L'application est développée en **Java** avec une base de données **MySQL**.
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
-- 🏢 **Ajouter une salle** : Ajouter une nouvelle salle avec son nom, son type et sa capacité.
-- 🖥️ **Ajouter un équipement** : Ajouter un nouvel équipement avec son nom, son type et son état.
-- 🔗 **Affecter un équipement à une salle** : Associer un équipement à une salle spécifique.
-- 🔎 **Filtrer les équipements par salle** : Lister les équipements affectés à une salle donnée.
+ **Ajouter une salle** : Ajouter une nouvelle salle avec son nom, son type et sa capacité.
+ **Ajouter un équipement** : Ajouter un nouvel équipement avec son nom, son type et son état.
+ **Affecter un équipement à une salle** : Associer un équipement à une salle spécifique.
+ **Filtrer les équipements par salle** : Lister les équipements affectés à une salle donnée.
 
 ---
 
-## 🗄️ Structure de la Base de Données
+##  Structure de la Base de Données
 
 La base de données MySQL est composée des tables suivantes :  
 
@@ -46,7 +46,7 @@ La base de données MySQL est composée des tables suivantes :
 - **`équipement`** : Contient les détails des équipements.
 - **`affectation_equipement`** : Gère l'affectation des équipements aux salles.
 
-### 📌 Table `salle`
+### Les tables SQL
 ```sql
 CREATE TABLE `salle` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -56,8 +56,7 @@ CREATE TABLE `salle` (
     PRIMARY KEY (`id`)
 );
 
-### 📌 Table `équipement`
-```sql
+
 CREATE TABLE `équipement` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `nom` VARCHAR(100) NOT NULL,
@@ -65,8 +64,8 @@ CREATE TABLE `équipement` (
     `etat` VARCHAR(50) DEFAULT NULL,
     PRIMARY KEY (`id`)
 );
-### 📌 Table `affectation_equipement`
-```sql
+
+
 CREATE TABLE `affectation_equipement` (
     
     `salle` INT(11) NOT NULL,
