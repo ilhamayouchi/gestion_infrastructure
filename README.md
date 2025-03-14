@@ -70,6 +70,7 @@ CREATE TABLE affectation_equipement (
 salle INT,
 equipement INT,
 dateaffectation DATE NOT NULL,
+ CONSTRAINT pk_affectation PRIMARY KEY (salle, equipement),
 CONSTRAINT fk_salle FOREIGN KEY (salle) REFERENCES salle(id),
 CONSTRAINT fk_equipement FOREIGN KEY (equipement) REFERENCES équipement(id)
  );
