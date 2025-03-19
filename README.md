@@ -21,6 +21,12 @@ La base de données MySQL est composée des tables suivantes :
 - **`salle`** : Stocke les informations des salles.
 - **`équipement`** : Contient les détails des équipements.
 - **`affectation_equipement`** : Gère l'affectation des équipements aux salles.
+##Les diagrammes UML :
+Diagramme use case :
+<img width="569" alt="image" src="https://github.com/user-attachments/assets/4275a214-ee5f-490f-9c91-a9cf0c13ef72" />
+Diagramme de classe :
+<img width="421" alt="image" src="https://github.com/user-attachments/assets/b9ef1f17-00f3-49a8-bc20-86480e1dd13d" />
+
 
 ### Les tables SQL
 ```sql
@@ -50,4 +56,8 @@ dateaffectation DATE NOT NULL,
 CONSTRAINT fk_salle FOREIGN KEY (salle) REFERENCES salle(id),
 CONSTRAINT fk_equipement FOREIGN KEY (equipement) REFERENCES équipement(id)
  );
+CREATE TABLE users (
+    login VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
 
