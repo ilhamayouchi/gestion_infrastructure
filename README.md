@@ -31,6 +31,27 @@ La base de données MySQL est composée des tables suivantes :
 <img width="421" alt="image" src="https://github.com/user-attachments/assets/b9ef1f17-00f3-49a8-bc20-86480e1dd13d" />
 
 
+##  Vidéo sur les interfaces de l'application
+
+## Technologies
+- **Langage** : Java
+
+- **Framework d'interface graphique** : Java Swing
+
+- **Base de données** : MySQL
+
+- **Bibliothèque graphique** : JFreeChart
+
+- **Outils de développement** :  IDE NetBeans
+  
+- **Outil de diagramme** : MagicDraw
+
+- **Outil de gestion de base de données** : phpMyAdmin
+
+- **Accès aux données** : JDBC
+## Structure de la Base de Données
+
+
 ### Les tables SQL
 ```sql
 CREATE TABLE `salle` (
