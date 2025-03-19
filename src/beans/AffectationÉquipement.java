@@ -30,7 +30,7 @@ public class AffectationÉquipement {
         return salle;
     }
 
-    public void setSalle_(Salle salle) {
+    public void setSalle(Salle salle) {
         this.salle = salle;
     }
 

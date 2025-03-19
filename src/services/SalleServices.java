@@ -24,6 +24,7 @@ public class SalleServices implements Idao<Salle> {
 
     public SalleServices() {
         connexion = Connexion.getInstance();
+        System.out.println("done----");
     }
 
     @Override
@@ -75,7 +76,7 @@ public class SalleServices implements Idao<Salle> {
 
     @Override
     public Salle findById(int id) {
-        String req = "select * from Salle where id = ?";
+        String req = " select * from Salle where id = ? ";
         try {
             PreparedStatement ps = connexion.getCn().prepareStatement(req);
             ps.setInt(1, id);

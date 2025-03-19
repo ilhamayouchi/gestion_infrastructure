@@ -42,7 +42,7 @@ public class Testpro {
         }
 
         System.out.println("Test de recherche d'une salle par id");
-        Salle salleTrouvee = salleService.findById(1);
+        Salle salleTrouvee = salleService.findById(5);
         if (salleTrouvee != null) {
             System.out.println("Salle trouvée : " + salleTrouvee.getNom());
         } else {

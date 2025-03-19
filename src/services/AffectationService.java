@@ -157,35 +157,40 @@ public class AffectationService implements Idao<AffectationÉquipement> {
         return affectations;
     }
 
-    public AffectationÉquipement findBySalleAndEquipement(int salleId, int equipementId) {
-        if (salleId <= 0 || equipementId <= 0) {
-            System.out.println("Erreur : IDs invalides (Salle ID: " + salleId + ", Équipement ID: " + equipementId + ")");
-            return null;
-        }
+    public List<AffectationÉquipement> findBySalleAndEquipement(int salleId) {
+    List<AffectationÉquipement> affectations = new ArrayList<>();
 
-        String req = "SELECT a.dateaffectation FROM affectation_equipement a WHERE a.salle = ? AND a.equipement = ?";
-        try (PreparedStatement ps = connexion.getCn().prepareStatement(req)) {
-            ps.setInt(1, salleId);
-            ps.setInt(2, equipementId);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    // Récupérer la salle et l'équipement
-                    Salle salle = salleService.findById(salleId);
-                    Équipement equipement = equipementService.findById(equipementId);
+    if (salleId <= 0) {
+        System.out.println("Erreur : ID de salle invalide (Salle ID: " + salleId + ")");
+        return affectations;
+    }
 
-                    if (salle != null && equipement != null) {
-                        return new AffectationÉquipement(salle, equipement, rs.getDate("dateaffectation"));
-                    } else {
-                        System.out.println("Erreur : Salle ou équipement non trouvé.");
-                        return null;
-                    }
+    String req = "SELECT a.equipement, a.dateaffectation FROM affectation_equipement a WHERE a.salle = ?";
+    try (PreparedStatement ps = connexion.getCn().prepareStatement(req)) {
+        ps.setInt(1, salleId);
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                // Récupérer l'équipement
+                int equipementId = rs.getInt("equipement");
+                Équipement equipement = equipementService.findById(equipementId);
+
+                if (equipement != null) {
+                    // Créer un objet AffectationÉquipement et l'ajouter à la liste
+                    AffectationÉquipement affectation = new AffectationÉquipement(
+                        salleService.findById(salleId), // Récupérer la salle
+                        equipement,                    // Récupérer l'équipement
+                        rs.getDate("dateaffectation") // Récupérer la date d'affectation
+                    );
+                    affectations.add(affectation);
+                } else {
+                    System.out.println("Erreur : Équipement non trouvé pour l'ID " + equipementId);
                 }
             }
-        } catch (SQLException ex) {
-            System.out.println("Erreur lors de la recherche d'affectation : " + ex.getMessage());
         }
-
-        System.out.println("Affectation non trouvée.");
-        return null;
+    } catch (SQLException ex) {
+        System.out.println("Erreur lors de la recherche d'affectations : " + ex.getMessage());
     }
+
+    return affectations;
+}
 }

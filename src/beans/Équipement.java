@@ -60,4 +60,8 @@ public class Équipement {
     public void setEtat(String etat) {
         this.etat = etat;
     }
+    public String toString() {
+        return this.nom; // Retourne le nom de l'équipement
+    }
+    
 }

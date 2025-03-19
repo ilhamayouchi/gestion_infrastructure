@@ -60,4 +60,7 @@ public class Salle {
     public void setCapacite(int capacite) {
         this.capacite = capacite;
     }
+     public String toString() {
+        return this.nom; // Retourne le nom de la salle
+    }
 }
