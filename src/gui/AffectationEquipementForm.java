@@ -87,6 +87,8 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
+        btnupdate = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         Jpanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -95,14 +97,32 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
         listequipement = new javax.swing.JComboBox();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         btnadd = new javax.swing.JButton();
-        btnupdate = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabAffectation = new javax.swing.JTable();
 
         jTextField1.setText("jTextField1");
+
+        btnupdate.setBackground(new java.awt.Color(102, 102, 255));
+        btnupdate.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
+        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-update-50.png"))); // NOI18N
+        btnupdate.setText("     Modifier");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(102, 102, 255));
+        jButton3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-delete-50.png"))); // NOI18N
+        jButton3.setText("    Supprimer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         setBackground(new java.awt.Color(204, 204, 255));
         setClosable(true);
@@ -131,30 +151,10 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
         btnadd.setBackground(new java.awt.Color(102, 102, 255));
         btnadd.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
         btnadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-50.png"))); // NOI18N
-        btnadd.setText("    Ajouter");
+        btnadd.setText("              Ajouter");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaddActionPerformed(evt);
-            }
-        });
-
-        btnupdate.setBackground(new java.awt.Color(102, 102, 255));
-        btnupdate.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
-        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-update-50.png"))); // NOI18N
-        btnupdate.setText("     Modifier");
-        btnupdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnupdateActionPerformed(evt);
-            }
-        });
-
-        jButton3.setBackground(new java.awt.Color(102, 102, 255));
-        jButton3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-delete-50.png"))); // NOI18N
-        jButton3.setText("    Supprimer");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
             }
         });
 
@@ -181,16 +181,11 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
                         .addGap(34, 34, 34)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpanelLayout.createSequentialGroup()
+                        .addGap(293, 293, 293)
+                        .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(JpanelLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90))
         );
         JpanelLayout.setVerticalGroup(
             JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,12 +200,8 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3)
                         .addComponent(jLabel1))
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnadd)
-                    .addComponent(btnupdate)
-                    .addComponent(jButton3))
-                .addGap(29, 29, 29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(btnadd))
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
@@ -266,62 +257,8 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
         // TODO add your handling code here:
-        if (tabAffectation.getSelectedRow() != -1) {
-
-            // Récupérer les autres informations de l'affectation sélec
-            // Récupérer les autres informations de l'affectation sélectionnée
-            String nomSalle = tabAffectation.getValueAt(tabAffectation.getSelectedRow(), 0).toString(); // Colonne 0 : Nom du salle
-            String nomEquipement = tabAffectation.getValueAt(tabAffectation.getSelectedRow(), 1).toString(); // Colonne 1 : Nom de l'équipement
-            String dateAffectation = tabAffectation.getValueAt(tabAffectation.getSelectedRow(), 2).toString(); // Colonne 2 : Date d'affectation
-
-            // Remplir les champs de l'interface
-            Salle salleSelectionnee = trouverSalleParNom(nomSalle);
-            if (salleSelectionnee != null) {
-                listeSalle.setSelectedItem(salleSelectionnee);
-            } else {
-                JOptionPane.showMessageDialog(this, "Salle non trouvée : " + nomSalle);
-            }
-
-            Équipement equipementSelectionne = trouverEquipementParNom(nomEquipement);
-            if (equipementSelectionne != null) {
-                listequipement.setSelectedItem(equipementSelectionne);
-            } else {
-                JOptionPane.showMessageDialog(this, "Équipement non trouvé : " + nomEquipement);
-            }
-
-            try {
-                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dateAffectation);
-                jDateChooser1.setDate(date);
-            } catch (ParseException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Format de date invalide : " + dateAffectation);
-            }
-        }
-    }
-
-// Méthode pour trouver une salle par son nom
-// Méthode pour trouver une salle par son nom
-// Méthode pour trouver une salle par son nom
-    private Salle trouverSalleParNom(String nomSalle) {
-        for (int i = 0; i < listeSalle.getItemCount(); i++) {
-            Salle salle = (Salle) listeSalle.getItemAt(i); // Récupérer l'objet Salle
-            if (salle.getNom().equals(nomSalle)) {
-                return salle; // Retourner l'objet Salle correspondant
-            }
-        }
-        return null; // Retourner null si la salle n'est pas trouvée
-    }
-
-// Méthode pour trouver un équipement par son nom
-    private Équipement trouverEquipementParNom(String nomEquipement) {
-        for (int i = 0; i < listequipement.getItemCount(); i++) {
-            Équipement equipement = (Équipement) listequipement.getItemAt(i); // Récupérer l'objet Équipement
-            if (equipement.getNom().equals(nomEquipement)) {
-                return equipement; // Retourner l'objet Équipement correspondant
-            }
-        }
-        return null; // Retourner null si l'équipement n'est pas trouvé
-
+        
+    
 
     }//GEN-LAST:event_btnupdateActionPerformed
 
@@ -375,36 +312,7 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
     private void tabAffectationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabAffectationMouseClicked
         // TODO add your handling code here:
 
-        if (tabAffectation.getSelectedRow() != -1) {
-            // Récupérer les informations de l'affectation sélectionnée
-            String nomSalle = tabAffectation.getValueAt(tabAffectation.getSelectedRow(), 0).toString(); // Colonne 0 : Nom de la salle
-            String nomEquipement = tabAffectation.getValueAt(tabAffectation.getSelectedRow(), 1).toString(); // Colonne 1 : Nom de l'équipement
-            String dateAffectation = tabAffectation.getValueAt(tabAffectation.getSelectedRow(), 2).toString(); // Colonne 2 : Date d'affectation
-
-            // Remplir les champs de l'interface avec les données de l'affectation sélectionnée
-            Salle salleSelectionnee = trouverSalleParNom(nomSalle);
-            if (salleSelectionnee != null) {
-                listeSalle.setSelectedItem(salleSelectionnee); // Définir l'objet Salle sélectionné
-            } else {
-                JOptionPane.showMessageDialog(this, "Salle non trouvée : " + nomSalle);
-            }
-
-            Équipement equipementSelectionne = trouverEquipementParNom(nomEquipement);
-            if (equipementSelectionne != null) {
-                listequipement.setSelectedItem(equipementSelectionne); // Définir l'objet Équipement sélectionné
-            } else {
-                JOptionPane.showMessageDialog(this, "Équipement non trouvé : " + nomEquipement);
-            }
-
-            // Définir la date dans le JDateChooser
-            try {
-                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dateAffectation);
-                jDateChooser1.setDate(date);
-            } catch (ParseException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Format de date invalide : " + dateAffectation);
-            }
-        }
+       
 
 
     }//GEN-LAST:event_tabAffectationMouseClicked
