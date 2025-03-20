@@ -49,9 +49,7 @@ La base de données MySQL est composée des tables suivantes :
 - **Outil de gestion de base de données** : phpMyAdmin
 
 - **Accès aux données** : JDBC
-## Structure de la Base de Données
-
-
+  
 ### Les tables SQL
 ```sql
 CREATE TABLE `salle` (
