@@ -28,7 +28,7 @@ import java.text.SimpleDateFormat;
  * @author hp
  */
 public class AffectationEquipementForm extends javax.swing.JInternalFrame {
-
+     private static AffectationEquipementForm instance;
     private SalleServices s;
     private EquipementServices es;
     private AffectationService as;
@@ -39,7 +39,11 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
     /**
      * Creates new form AffectationEquipementForm
      */
-    public AffectationEquipementForm() {
+    private AffectationEquipementForm() {
+        super("Gestion des affectation ", true, true, true, true);
+        setSize(400, 300);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
+        
         initComponents();
         this.setTitle("Gestion des infrastructures scolaires");
         s = new SalleServices();
@@ -51,7 +55,12 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
         model = (DefaultTableModel) tabAffectation.getModel();
         loadAffectation();
     }
-
+     public static synchronized AffectationEquipementForm getInstance() {
+        if (instance == null) {
+            instance = new AffectationEquipementForm();
+        }
+        return instance;
+    }
     public void loadAffectation() {
         model.setRowCount(0);
         for (AffectationÉquipement a : as.findAll()) {

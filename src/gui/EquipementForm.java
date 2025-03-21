@@ -17,6 +17,7 @@ import java.time.Clock;
  */
 public class EquipementForm extends javax.swing.JInternalFrame {
 
+    private static EquipementForm instance;
     private EquipementServices e;
     private DefaultTableModel model;
     private static int id;
@@ -24,11 +25,21 @@ public class EquipementForm extends javax.swing.JInternalFrame {
     /**
      * Creates new form EquipementForm
      */
-    public EquipementForm() {
+    private EquipementForm() {
+        super("gestion des équipements", true, true, true, true);
+        setSize(400, 300);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         initComponents();
         e = new EquipementServices();
         model = (DefaultTableModel) tabequipement.getModel();
         loadEquipement();
+    }
+
+    public static synchronized EquipementForm getInstance() {
+        if (instance == null) {
+            instance = new EquipementForm();
+        }
+        return instance;
     }
 
     public void loadEquipement() {

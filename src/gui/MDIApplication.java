@@ -12,7 +12,8 @@ import static sun.font.SunLayoutEngine.instance;
  * @author hp
  */
 public class MDIApplication extends javax.swing.JFrame {
-     public static MDIApplication instance;
+
+    public static MDIApplication instance;
 
     /**
      * Creates new form MDIApplication
@@ -22,12 +23,14 @@ public class MDIApplication extends javax.swing.JFrame {
         this.setTitle("Gestion des infrastructures scolaires");
         this.setExtendedState(MAXIMIZED_BOTH);
     }
-    public static MDIApplication getInstance(){
+
+    public static MDIApplication getInstance() {
         if (instance == null) {
-        instance = new MDIApplication();
+            instance = new MDIApplication();
+        }
+        return instance;
     }
-    return instance;
-   }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,30 +171,43 @@ public class MDIApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void SalleMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalleMenuItemActionPerformed
-        SalleForm ss = new SalleForm();
-        desktopPane.add(ss);
-        ss.setVisible(true);
+        SalleForm ss = SalleForm.getInstance(); // ✅ Récupération de l'unique instance
+        if (!ss.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(ss);
+            ss.setVisible(true);
+            ss.toFront(); // Amène la fenêtre au premier plan
+        }
+
     }//GEN-LAST:event_SalleMenuItemActionPerformed
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
-        FiltreEquipementParSalleForm fs = new FiltreEquipementParSalleForm();
-        desktopPane.add(fs);
-        fs.setVisible(true);
+        FiltreEquipementParSalleForm fs = FiltreEquipementParSalleForm.getInstance(); // ✅ Récupération de l'unique instance
+        if (!fs.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(fs);
+            fs.setVisible(true);
+            fs.toFront(); // Amène la fenêtre au premier plan
+        }
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void EquipementMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EquipementMenuItemActionPerformed
         // TODO add your handling code here:
-         EquipementForm es = new EquipementForm();
-        desktopPane.add(es);
-        es.setVisible(true);
+        EquipementForm es = EquipementForm.getInstance(); // ✅ Récupération de l'unique instance
+        if (!es.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(es);
+            es.setVisible(true);
+            es.toFront(); // Amène la fenêtre au premier plan
+        }
     }//GEN-LAST:event_EquipementMenuItemActionPerformed
 
     private void affecterequipementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_affecterequipementActionPerformed
         // TODO add your handling code here:
-        AffectationEquipementForm as = new AffectationEquipementForm();
-        desktopPane.add(as);
-        as.setVisible(true);
+        AffectationEquipementForm as = AffectationEquipementForm.getInstance(); // ✅ Récupération de l'unique instance
+        if (!as.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(as);
+            as.setVisible(true);
+            as.toFront(); // Amène la fenêtre au premier plan
+        }
     }//GEN-LAST:event_affecterequipementActionPerformed
 
     /**

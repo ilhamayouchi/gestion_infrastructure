@@ -22,6 +22,7 @@ import services.SalleServices;
  */
 public class FiltreEquipementParSalleForm extends javax.swing.JInternalFrame {
 
+    private static FiltreEquipementParSalleForm instance;
     private SalleServices ss;
     private EquipementServices es;
     private AffectationService as;
@@ -30,7 +31,11 @@ public class FiltreEquipementParSalleForm extends javax.swing.JInternalFrame {
     /**
      * Creates new form FiltreEquipementParSalleForm
      */
-    public FiltreEquipementParSalleForm() {
+    private FiltreEquipementParSalleForm() {
+        super("Filtrage des equipements", true, true, true, true);
+        setSize(400, 300);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
+
         initComponents();
         this.setTitle("Filtrage des équipements par salle");
         ss = new SalleServices();
@@ -39,6 +44,13 @@ public class FiltreEquipementParSalleForm extends javax.swing.JInternalFrame {
         listesalle.setModel(new javax.swing.DefaultComboBoxModel<>());
         model = (DefaultTableModel) listequipement.getModel();
         loadSalle();
+    }
+
+    public static synchronized FiltreEquipementParSalleForm getInstance() {
+        if (instance == null) {
+            instance = new FiltreEquipementParSalleForm();
+        }
+        return instance;
     }
 
     void loadSalle() {

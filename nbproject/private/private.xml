@@ -7,16 +7,17 @@
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/beans/Salle.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/Main.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/dao/Idao.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/services/EquipementServices.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/services/AffectationService.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/SalleForm.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/beans/Équipement.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/EquipementForm.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/testprogramme/Testpro.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/dao/IUser.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/AffectationEquipementForm.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/services/UserServices.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/services/SalleServices.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/connexion/Connexion.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/MDIApplication.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/beans/User.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/FiltreEquipementParSalleForm.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/images/icons8-meeting-room-50.png</file>
         </group>
     </open-files>
 </project-private>
