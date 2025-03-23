@@ -3,21 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/beans/AffectationÉquipement.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/beans/Salle.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/Main.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/dao/Idao.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/services/AffectationService.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/SalleForm.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/EquipementForm.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/dao/IUser.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/GrapheForm.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/AffectationEquipementForm.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/services/UserServices.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/services/SalleServices.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/Main.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/connexion/Connexion.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/MDIApplication.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/SalleForm.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/beans/User.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/EquipementForm.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/gui/FiltreEquipementParSalleForm.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/images/icons8-meeting-room-50.png</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/Project/src/dao/IUser.java</file>
         </group>
     </open-files>
 </project-private>

@@ -153,14 +153,19 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
 
         listeSalle.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 16)); // NOI18N
         listeSalle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listeSalle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
 
         listequipement.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 16)); // NOI18N
         listequipement.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listequipement.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
 
-        btnadd.setBackground(new java.awt.Color(102, 102, 255));
+        jDateChooser1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
+
+        btnadd.setBackground(new java.awt.Color(255, 255, 255));
         btnadd.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
         btnadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-50.png"))); // NOI18N
         btnadd.setText("              Ajouter");
+        btnadd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaddActionPerformed(evt);
@@ -186,8 +191,8 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(listequipement, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
+                        .addComponent(listequipement, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -209,7 +214,7 @@ public class AffectationEquipementForm extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3)
                         .addComponent(jLabel1))
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnadd))
         );
 

@@ -8,10 +8,18 @@ package services;
 import beans.User;
 import connexion.Connexion;
 import dao.IUser;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
+import java.util.Base64;
+import javax.swing.JOptionPane;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 /**
  *
@@ -24,7 +32,16 @@ import java.util.Random;
  */
 public class UserServices implements IUser {
 
-    private Connexion connexion;
+
+
+
+/**
+ *
+ * @author pc
+ */
+
+
+   private Connexion connexion;
 
     public UserServices() {
         connexion = Connexion.getInstance();
@@ -32,15 +49,18 @@ public class UserServices implements IUser {
 
     @Override
     public boolean addUser(User user) {
-        String req = "INSERT INTO user (login, password) VALUES (?, SHA1(?))";
+        String req = "INSERT INTO user (login, password, securityQuestion, securityAnswer, email) VALUES (?, SHA1(?), ?, SHA1(?), ?)";
         try {
             PreparedStatement ps = connexion.getCn().prepareStatement(req);
             ps.setString(1, user.getLogin());
-            ps.setString(2, user.getPassword());
+            ps.setString(2, user.getPassword()); // Mot de passe en clair
+            ps.setString(3, user.getSecurityQuestion());
+            ps.setString(4, user.getSecurityAnswer()); // Réponse secrète en clair
+            ps.setString(5, user.getEmail());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Erreur lors de l'ajout de l'utilisateur : " + ex.getMessage());
         }
         return false;
     }
@@ -53,10 +73,16 @@ public class UserServices implements IUser {
             ps.setString(1, login);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new User(rs.getString("login"), rs.getString("password"));
+                return new User(
+                        rs.getString("login"),
+                        rs.getString("password"),
+                        rs.getString("securityQuestion"),
+                        rs.getString("securityAnswer"),
+                        rs.getString("email")
+                );
             }
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Erreur lors de la recherche de l'utilisateur : " + ex.getMessage());
         }
         return null;
     }
@@ -67,45 +93,101 @@ public class UserServices implements IUser {
         try {
             PreparedStatement ps = connexion.getCn().prepareStatement(req);
             ps.setString(1, login);
-            ps.setString(2, password);
+            ps.setString(2, password); // Mot de passe en clair
             ResultSet rs = ps.executeQuery();
             return rs.next();
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Erreur lors de l'authentification : " + ex.getMessage());
         }
         return false;
     }
 
-    public String resetPassword(String login) {
-        String newPassword = generateTemporaryPassword();
-        String query = "UPDATE user SET password = SHA1(?) WHERE login = ?";
-
+    public boolean resetPasswordBySecurityQuestion(String login, String securityAnswer) {
         try {
-            PreparedStatement pstmt = connexion.getCn().prepareStatement(query);
-            pstmt.setString(1, newPassword);
-            pstmt.setString(2, login);
-
-            int rowsUpdated = pstmt.executeUpdate();
-
-            if (rowsUpdated > 0) {
-                return newPassword; // Mot de passe temporaire généré
+            User user = findUserByLogin(login);
+            if (user != null) {
+                String req = "SELECT * FROM user WHERE login = ? AND securityAnswer = SHA1(?)";
+                PreparedStatement ps = connexion.getCn().prepareStatement(req);
+                ps.setString(1, login);
+                ps.setString(2, securityAnswer); // Réponse secrète en clair
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    String newPassword = generateTemporaryPassword();
+                    if (updatePassword(login, newPassword)) {
+                        sendPasswordByEmail(user.getEmail(), newPassword);
+                        return true;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Réponse secrète incorrecte.");
+                }
             } else {
-                return null; // L'utilisateur n'existe pas
+                JOptionPane.showMessageDialog(null, "Utilisateur introuvable.");
             }
         } catch (SQLException e) {
-            System.out.println("Erreur lors de la réinitialisation du mot de passe : " + e.getMessage());
-
+            System.out.println("Erreur : " + e.getMessage());
         }
-        return null;
+        return false;
     }
 
-    private String generateTemporaryPassword() {
+    public boolean updatePassword(String login, String newPassword) {
+        String query = "UPDATE user SET password = SHA1(?) WHERE login = ?";
+        try {
+            PreparedStatement pstmt = connexion.getCn().prepareStatement(query);
+            pstmt.setString(1, newPassword); // Nouveau mot de passe en clair
+            pstmt.setString(2, login);
+            int rowsUpdated = pstmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la mise à jour du mot de passe : " + e.getMessage());
+        }
+        return false;
+    }
+
+    private String hashPassword(String password) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA1");
+        byte[] hash = digest.digest(password.getBytes());
+        return Base64.getEncoder().encodeToString(hash);
+    }
+
+    public String generateTemporaryPassword() {
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
-        StringBuilder sb = new StringBuilder(8);
-        for (int i = 0; i < 8; i++) {
+        StringBuilder sb = new StringBuilder(12);
+        for (int i = 0; i < 12; i++) {
             sb.append(chars.charAt(random.nextInt(chars.length())));
         }
         return sb.toString();
     }
+
+    private void sendPasswordByEmail(String recipientEmail, String newPassword) {
+        try {
+            String username = "i.ayouchi7677@uca.ac.ma"; 
+            String password = "xlaw xerl auyy whxq"; 
+
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", "smtp.gmail.com"); 
+            props.put("mail.smtp.port", "587"); 
+            
+            Session session = Session.getInstance(props, new Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password);
+                }
+            });
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+            message.setSubject("Réinitialisation de votre mot de passe");
+            message.setText("Votre nouveau mot de passe est : " + newPassword);
+
+            Transport.send(message);
+            JOptionPane.showMessageDialog(null, "Un nouveau mot de passe a été envoyé à votre adresse e-mail.");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erreur lors de l'envoi de l'e-mail.");
+        }
+    }
 }
+

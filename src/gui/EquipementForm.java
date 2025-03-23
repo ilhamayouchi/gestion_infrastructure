@@ -110,35 +110,44 @@ public class EquipementForm extends javax.swing.JInternalFrame {
         JLabel3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
         JLabel3.setText("État d'équipement");
 
-        btnAdd.setBackground(new java.awt.Color(102, 102, 255));
+        btnAdd.setBackground(new java.awt.Color(255, 255, 255));
         btnAdd.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-50.png"))); // NOI18N
         btnAdd.setText("    Ajouter");
+        btnAdd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
-        btnUpdate.setBackground(new java.awt.Color(102, 102, 255));
+        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
         btnUpdate.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-update-50.png"))); // NOI18N
         btnUpdate.setText("   Modifier");
+        btnUpdate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(102, 102, 255));
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-delete-50.png"))); // NOI18N
         btnDelete.setText("   Supprimer");
+        btnDelete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+
+        txtNom2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
+
+        txtType2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
+
+        txtEtat2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Liste des équipements", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 1, 16))); // NOI18N

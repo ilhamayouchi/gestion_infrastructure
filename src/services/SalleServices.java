@@ -24,7 +24,7 @@ public class SalleServices implements Idao<Salle> {
 
     public SalleServices() {
         connexion = Connexion.getInstance();
-        System.out.println("done----");
+        
     }
 
     @Override

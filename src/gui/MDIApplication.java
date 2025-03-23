@@ -5,6 +5,21 @@
  */
 package gui;
 
+import connexion.Connexion;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.SwingUtilities;
+import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 import static sun.font.SunLayoutEngine.instance;
 
 /**
@@ -59,8 +74,7 @@ public class MDIApplication extends javax.swing.JFrame {
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -138,15 +152,15 @@ public class MDIApplication extends javax.swing.JFrame {
         menuBar.add(editMenu);
 
         helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
+        helpMenu.setText("Statistique");
 
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
+        jMenuItem1.setText("Nombre d'équipements par salle");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        helpMenu.add(jMenuItem1);
 
         menuBar.add(helpMenu);
 
@@ -210,6 +224,16 @@ public class MDIApplication extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_affecterequipementActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        GrapheForm gf = GrapheForm.getInstance(); // ✅ Récupération de l'unique instance
+        if (!gf.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(gf);
+            gf.setVisible(true);
+            gf.toFront(); // Amène la fenêtre au premier plan
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -248,9 +272,7 @@ public class MDIApplication extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem EquipementMenuItem;
     private javax.swing.JMenuItem SalleMenuItem;
-    private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem affecterequipement;
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
@@ -266,6 +288,7 @@ public class MDIApplication extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 

@@ -114,6 +114,7 @@ public class SalleForm extends javax.swing.JInternalFrame {
         jLabel3.setText("Capacité :");
 
         txtNom.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
+        txtNom.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
         txtNom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomActionPerformed(evt);
@@ -122,36 +123,42 @@ public class SalleForm extends javax.swing.JInternalFrame {
 
         jTextField2.setText("jTextField1");
 
+        txtType.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
         txtType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTypeActionPerformed(evt);
             }
         });
 
-        btnAdd.setBackground(new java.awt.Color(102, 102, 255));
+        txtCapacite.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
+
+        btnAdd.setBackground(new java.awt.Color(255, 255, 255));
         btnAdd.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-50.png"))); // NOI18N
         btnAdd.setText("      Ajouter");
+        btnAdd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
-        btnupdate.setBackground(new java.awt.Color(102, 102, 255));
+        btnupdate.setBackground(new java.awt.Color(255, 255, 255));
         btnupdate.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
         btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-update-50.png"))); // NOI18N
         btnupdate.setText("        Modifier");
+        btnupdate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnupdateActionPerformed(evt);
             }
         });
 
-        btndelete.setBackground(new java.awt.Color(102, 102, 255));
+        btndelete.setBackground(new java.awt.Color(255, 255, 255));
         btndelete.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 16)); // NOI18N
         btndelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-delete-50.png"))); // NOI18N
         btndelete.setText("         Supprimer");
+        btndelete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndeleteActionPerformed(evt);
