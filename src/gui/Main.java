@@ -20,7 +20,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-         this.setTitle("Athentification");
+        this.setTitle("Athentification");
         this.setLocationRelativeTo(null);
     }
 
@@ -254,8 +254,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         String login = textLogin.getText().trim();
-       String password = new String(txtPassword.getPassword()).trim();
+        String login = textLogin.getText().trim();
+        String password = new String(txtPassword.getPassword()).trim();
 
         UserServices userService = new UserServices();
 

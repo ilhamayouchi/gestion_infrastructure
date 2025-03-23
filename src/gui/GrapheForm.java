@@ -19,13 +19,12 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import javax.swing.*;
 import java.awt.*;
+
 /**
  *
  * @author hp
  */
 public class GrapheForm extends javax.swing.JInternalFrame {
-  
-    
 
     private static GrapheForm instance;
 
@@ -45,9 +44,9 @@ public class GrapheForm extends javax.swing.JInternalFrame {
         // Création du graphique
         JFreeChart barChart = ChartFactory.createBarChart(
                 "Nombre d’équipements par salle", // Titre du graphique
-                "Salles",                         // Axe X
-                "Nombre d'équipements",           // Axe Y
-                dataset,                          // Données
+                "Salles", // Axe X
+                "Nombre d'équipements", // Axe Y
+                dataset, // Données
                 PlotOrientation.VERTICAL,
                 true, true, false);
 
@@ -64,61 +63,66 @@ public class GrapheForm extends javax.swing.JInternalFrame {
     }
 
     public static synchronized GrapheForm getInstance() {
-    if (instance == null) {
-        try {
-            instance = new GrapheForm();
-        } catch (Exception e) {
-            e.printStackTrace();  // Ajoute une trace d'erreur pour mieux comprendre ce qui ne va pas
+        if (instance == null) {
+            try {
+                instance = new GrapheForm();
+            } catch (Exception e) {
+                e.printStackTrace();  // Ajoute une trace d'erreur pour mieux comprendre ce qui ne va pas
+            }
         }
+        return instance;
     }
-    return instance;
-}
 
     private DefaultCategoryDataset createDataset() {
-    DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-    // Connexion à la base de données
-    Connection connection = null;
-    PreparedStatement statement = null;
-    ResultSet resultSet = null;
+        // Connexion à la base de données
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
 
-    try {
-        // Utiliser ta classe Connexion pour obtenir la connexion
-        connection = Connexion.getInstance().getCn();
-
-        // Requête pour récupérer le nombre d'équipements par salle
-        String sql = "SELECT s.nom, COUNT(ae.salle) AS nombre_equipements " +
-                     "FROM Salle s " +
-                     "JOIN affectation_equipement ae ON s.id = ae.salle " +
-                     "GROUP BY s.id";
-
-        // Préparer la requête
-        statement = connection.prepareStatement(sql);
-        resultSet = statement.executeQuery();
-
-        // Traiter les résultats et les ajouter au dataset
-        while (resultSet.next()) {
-            String salle = resultSet.getString("nom");
-            int nombreEquipements = resultSet.getInt("nombre_equipements");
-            dataset.addValue(nombreEquipements, "Équipements", salle);
-        }
-
-    } catch (SQLException e) {
-        e.printStackTrace();
-    } finally {
-        // Fermer les ressources
         try {
-            if (resultSet != null) resultSet.close();
-            if (statement != null) statement.close();
-            if (connection != null) connection.close();
+            // Utiliser ta classe Connexion pour obtenir la connexion
+            connection = Connexion.getInstance().getCn();
+
+            // Requête pour récupérer le nombre d'équipements par salle
+            String sql = "SELECT s.nom, COUNT(ae.salle) AS nombre_equipements "
+                    + "FROM Salle s "
+                    + "JOIN affectation_equipement ae ON s.id = ae.salle "
+                    + "GROUP BY s.id";
+
+            // Préparer la requête
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+
+            // Traiter les résultats et les ajouter au dataset
+            while (resultSet.next()) {
+                String salle = resultSet.getString("nom");
+                int nombreEquipements = resultSet.getInt("nombre_equipements");
+                dataset.addValue(nombreEquipements, "Équipements", salle);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            // Fermer les ressources
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
+
+        return dataset;
     }
-
-    return dataset;
-}
-
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -128,8 +132,6 @@ public class GrapheForm extends javax.swing.JInternalFrame {
     }
 
     // Méthode auto-générée pour l'initialisation de l'interface (peut rester inchangée)
-   
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

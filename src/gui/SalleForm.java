@@ -16,7 +16,8 @@ import javax.swing.table.DefaultTableModel;
  * @author hp
  */
 public class SalleForm extends javax.swing.JInternalFrame {
-     private static SalleForm instance;
+
+    private static SalleForm instance;
     private SalleServices s;
     private DefaultTableModel model;
     private static int id;
@@ -28,9 +29,9 @@ public class SalleForm extends javax.swing.JInternalFrame {
         super("Gestion des salles", true, true, true, true);
         setSize(400, 300);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
-        
+
         initComponents(); // Initialisation des composants graphiques
-        
+
         s = new SalleServices();
         model = (DefaultTableModel) tabSalle.getModel();
         loadSalle();
@@ -45,6 +46,7 @@ public class SalleForm extends javax.swing.JInternalFrame {
         }
         return instance;
     }
+
     public void loadSalle() {
         model.setRowCount(0);
         for (Salle ss : s.findAll()) {
