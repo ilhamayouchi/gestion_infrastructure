@@ -11,6 +11,10 @@ L'application est développée en **Java** avec une base de données **MySQL**.
 - **Ajouter un équipement** : Ajouter un nouvel équipement avec son nom, son type et son état.
 - **Affecter un équipement à une salle** : Associer un équipement à une salle spécifique.
 -  **Filtrer les équipements par salle** : Lister les équipements affectés à une salle donnée.
+  
+##  Problématique
+
+La gestion des infrastructures scolaires, telles que les salles et les équipements, est souvent complexe en raison du manque de centralisation et de suivi en temps réel, entraînant des conflits d'affectation et une utilisation inefficace des ressources.
 
 ---
 
