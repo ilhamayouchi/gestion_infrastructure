@@ -36,7 +36,11 @@ La base de données MySQL est composée des tables suivantes :
 ##  Vidéo sur les interfaces de l'application
 lien drive du Vidéo
 
-<video controls src="enregistrement-de-l-ecran-2025-03-20-011858_TrXVHfSy-1.mp4" title="Title"></video>
+
+
+https://github.com/user-attachments/assets/eacc0cbc-4e1e-46ff-9d2a-91ee6239b107
+
+
 
 ## Technologies
 - **Langage** : Java
