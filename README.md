@@ -39,12 +39,8 @@ La base de données MySQL est composée des tables suivantes :
 
 
 ##  Vidéo sur les interfaces de l'application
-lien drive du Vidéo
 
-
-
-https://github.com/user-attachments/assets/eacc0cbc-4e1e-46ff-9d2a-91ee6239b107
-
+https://github.com/user-attachments/assets/15f03b41-b323-4c46-a170-4da40b3cd3f3
 
 
 ## Technologies
