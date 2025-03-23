@@ -33,6 +33,9 @@ La base de données MySQL est composée des tables suivantes :
 ## Architecture du project 
 ![image](https://github.com/user-attachments/assets/dd6e3a19-bad6-45d6-94be-5e9ec48e7da3)
 
+##  Logo
+
+![a-modern-and-minimalist-logo-representin_jv4DylowSY2IGO1pPgoo5Q_hO-zW58LQ3i99DQHsCAEoQ (1)](https://github.com/user-attachments/assets/21838f1f-e366-4603-bdb9-4022df1c3afb)
 
 
 ##  Vidéo sur les interfaces de l'application
