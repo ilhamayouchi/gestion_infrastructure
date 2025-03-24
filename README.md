@@ -96,6 +96,9 @@ CONSTRAINT fk_equipement FOREIGN KEY (equipement) REFERENCES équipement(id)
 
 CREATE TABLE users (
     login VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL
+    password VARCHAR(50) NOT NULL,
+    securityQuestion VARCHAR(255),
+    securityAnswer VARCHAR(255),
+    email VARCHAR(255)
 );
 
